@@ -25,6 +25,11 @@ export default function Home() {
           >
             <div className="container">
               <div className="navbar-brand">
+                {scroll && (
+                  <div className="navbar-item">
+                    <h1>SUN ASTROS</h1>
+                  </div>
+                )}
                 <span className="navbar-burger" data-target="navbarMenuHeroC">
                   <span></span>
                   <span></span>
@@ -112,18 +117,22 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <section id="merch">
-        <div>
-          <h2>MERCH</h2>
-        </div>
-        <div className="merch-container">
-          <div>
-            <InnerImageZoom src={ShirtSM} zoomSrc={ShirtLG} className="merch" />
-            <h3>UNIVERSE T-SHIRT</h3>
+      <section>
+        <div className="columns is-centered is-2 is-multiline">
+          <div className="column is-full">
+            <h2>MERCH</h2>
           </div>
-          <div>
-            <InnerImageZoom src={AlbumSM} zoomSrc={AlbumLG} className="merch" />
-            <h3>SUN ASTROS 12" VINYL RECORD</h3>
+          <div className="column is-narrow is-mobile merch">
+            <div>
+              <InnerImageZoom src={ShirtSM} zoomSrc={ShirtLG} />
+              <h3>UNIVERSE T-SHIRT</h3>
+            </div>
+          </div>
+          <div className="column is-narrow is-mobile merch">
+            <div>
+              <InnerImageZoom src={AlbumSM} zoomSrc={AlbumLG} />
+              <h3>SUN ASTROS 12" VINYL RECORD</h3>
+            </div>
           </div>
         </div>
       </section>
@@ -131,7 +140,6 @@ export default function Home() {
       <iframe
         title="SUN ASTROS BANDCAMP"
         scrolling="no"
-        // style="border: 0;width: 100%;height: 50px;"
         src="https://bandcamp.com/band_follow_button_deluxe/1584757219"
       ></iframe>
     </div>
