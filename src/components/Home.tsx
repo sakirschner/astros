@@ -4,80 +4,30 @@ import ShirtLG from "../images/sun-astros-shirt-lg.jpg";
 import AlbumLG from "../images/sun-astros-album-lg.jpg";
 import AlbumSM from "../images/sun-astros-album-sm.jpg";
 import "bulma/css/bulma.min.css";
-import { useScrollHandler } from "../hooks/useScrollHandler";
-import { Link } from "react-router-dom";
-import { useSongKick } from "../hooks/useSongKick";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
+import { useSongKick } from "../hooks/useSongKick";
+import { useMediaQuery } from "usehooks-ts";
+import { useScrollHandler } from "../hooks/useScrollHandler";
+import NavBar from "./NavBar";
 import InnerImageZoom from "react-inner-image-zoom";
 
 export default function Home() {
-  const scroll = useScrollHandler();
   useSongKick("//widget.songkick.com/10226656/widget.js");
+  const scroll = useScrollHandler();
+  const isSmall = useMediaQuery("(max-width: 1023px)");
+
+  const scrollToTop = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  };
 
   return (
-    <div>
+    <html className="has-navbar-fixed-top">
       <section className="hero has-background">
-        <div className="hero-head">
-          <header
-            className={`navbar is-transparent is-fixed-top ${
-              scroll ? "nav-background" : null
-            }`}
-          >
-            <div className="container">
-              <div className="navbar-brand">
-                {scroll && (
-                  <div className="navbar-item">
-                    <h1>SUN ASTROS</h1>
-                  </div>
-                )}
-                <span className="navbar-burger" data-target="navbarMenuHeroC">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </span>
-              </div>
-              <div id="navbarMenuHeroC" className="navbar-menu">
-                <div className="navbar-end">
-                  {/*eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <Link
-                    className="navbar-item"
-                    id={`${scroll ? "nav-item-scroll" : "nav-item"}`}
-                    to={{ pathname: "/#listen" }}
-                  >
-                    LISTEN
-                  </Link>
-                  {/*eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <Link
-                    className="navbar-item"
-                    id={`${scroll ? "nav-item-scroll" : "nav-item"}`}
-                    to={{ pathname: "/#shows" }}
-                  >
-                    SHOWS
-                  </Link>
-                  {/*eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <Link
-                    className="navbar-item"
-                    id={`${scroll ? "nav-item-scroll" : "nav-item"}`}
-                    to={{ pathname: "/#merch" }}
-                  >
-                    MERCH
-                  </Link>
-                  {/*eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <a
-                    className="navbar-item"
-                    id={`${scroll ? "nav-item-scroll" : "nav-item"}`}
-                    href="#"
-                  >
-                    CONTACT
-                  </a>
-                </div>
-              </div>
-            </div>
-          </header>
-        </div>
+        <NavBar />
         <img
           alt="SUN ASTROS BUBBLE BATH"
-          className="hero-background"
+          className={`hero-background ${isSmall ? "hero-margin" : null}`}
           src={BubbleBath}
         />
       </section>
@@ -123,25 +73,44 @@ export default function Home() {
             <h2>MERCH</h2>
           </div>
           <div className="column is-narrow is-mobile merch">
-            <div>
-              <InnerImageZoom src={ShirtSM} zoomSrc={ShirtLG} />
-              <h3>UNIVERSE T-SHIRT</h3>
-            </div>
+            <InnerImageZoom src={ShirtSM} zoomSrc={ShirtLG} />
+            <h3>UNIVERSE T-SHIRT</h3>
+            {/*eslint-disable-next-line react/jsx-no-target-blank*/}
+            <a
+              href="https://sunastros.bandcamp.com/merch/sun-astros-universe-tshirt"
+              target="_blank"
+            >
+              <button className="button btn is-danger is-light">BUY</button>
+            </a>
           </div>
           <div className="column is-narrow is-mobile merch">
-            <div>
-              <InnerImageZoom src={AlbumSM} zoomSrc={AlbumLG} />
-              <h3>SUN ASTROS 12" VINYL RECORD</h3>
-            </div>
+            <InnerImageZoom src={AlbumSM} zoomSrc={AlbumLG} />
+            <h3>SUN ASTRO 12" VINYL RECORD</h3>
+            {/*eslint-disable-next-line react/jsx-no-target-blank*/}
+            <a
+              href="https://sunastros.bandcamp.com/album/sun-astros"
+              target="_blank"
+            >
+              <button className="button btn is-danger is-light">
+                PRE-ORDER
+              </button>
+            </a>
           </div>
         </div>
       </section>
 
-      <iframe
-        title="SUN ASTROS BANDCAMP"
-        scrolling="no"
-        src="https://bandcamp.com/band_follow_button_deluxe/1584757219"
-      ></iframe>
-    </div>
+      <section>
+        <iframe
+          title="SUN ASTROS BANDCAMP"
+          scrolling="no"
+          src="https://bandcamp.com/band_follow_button_deluxe/1584757219"
+        ></iframe>
+      </section>
+      {scroll && (
+        <button id="top" onClick={scrollToTop}>
+          TOP
+        </button>
+      )}
+    </html>
   );
 }

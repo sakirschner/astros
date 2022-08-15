@@ -5,7 +5,7 @@ export const useScrollHandler = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      const scrollCheck = window.scrollY > 10;
+      const scrollCheck = window.scrollY > 1;
       setScroll(scrollCheck);
     };
 
