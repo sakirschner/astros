@@ -8,6 +8,10 @@ function App() {
   const { pathname, hash, key } = useLocation();
 
   useEffect(() => {
+    document.title = "SUN ASTROS";
+  }, []);
+
+  useEffect(() => {
     // if not a hash link, scroll to top
     if (hash === "") {
       window.scrollTo(0, 0);
