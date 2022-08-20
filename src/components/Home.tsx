@@ -20,6 +20,7 @@ export default function Home() {
   useSongKick("//widget.songkick.com/10226656/widget.js");
   const scroll = useScrollHandler();
   const isSmall = useMediaQuery("(max-width: 1023px)");
+  const isMedium = useMediaQuery("(min-width: 800px)");
 
   const scrollToTop = () => {
     document.body.scrollTop = 0;
@@ -32,7 +33,9 @@ export default function Home() {
         <NavBar />
         <img
           alt="SUN ASTROS BUBBLE BATH"
-          className={`hero-background ${isSmall ? "hero-margin" : null}`}
+          className={`hero-background ${
+            isSmall ? "hero-margin hero-background-small" : null
+          }`}
           src={BubbleBath}
         />
       </div>
@@ -42,6 +45,7 @@ export default function Home() {
         </div>
         <div className="bandcamp-container">
           <iframe
+            style={{ width: isSmall ? "275px" : "300px" }}
             title="SUN ASTROS ALBUM"
             className="bandcamp"
             src="https://bandcamp.com/EmbeddedPlayer/album=1445388436/size=large/bgcol=333333/linkcol=f171a2/package=974899599/tracklist=false/"
@@ -57,7 +61,12 @@ export default function Home() {
         <div>
           <h2>SHOWS</h2>
         </div>
-        <div className="songkick-container" id="shows">
+        <div
+          className={`songkick-container ${
+            isSmall ? "songkick-container-small" : null
+          }`}
+          id="shows"
+        >
           <a
             href="https://www.songkick.com/artists/10226656"
             className="songkick-widget"
@@ -108,10 +117,12 @@ export default function Home() {
           <h2>CONTACT</h2>
           <p
             style={{
-              marginTop: "-1em",
+              marginTop: "10px",
               marginBottom: "1em",
               fontSize: "24px",
               color: "#fff",
+              paddingRight: "50px",
+              paddingLeft: "50px",
             }}
           >
             FOR BOOKING AND GENERAL INQUIRIES EMAIL{" "}

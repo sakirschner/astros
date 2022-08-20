@@ -33,7 +33,7 @@ h1 {
 }
 
 h2 {
-  margin-bottom: 1em;
+  margin-bottom: 10px;
   font-size: 40px;
   color: #fff;
 }
@@ -62,8 +62,13 @@ input {
 .hero-background {
   position: relative;
   object-fit: contain;
-  width: 88%;
-  left: 6%;
+  left: 7%;
+  width: 85%;
+}
+
+.hero-background-small {
+  width: 100%;
+  left: 0%;
 }
 
 .hero-margin {
@@ -93,7 +98,15 @@ input {
 }
 
 .songkick-container > div {
-  width: 70%;
+  width: 100%;
+}
+
+.songkick-container > div > iframe {
+  width: 50% !important;
+}
+
+.songkick-container-small > div > iframe {
+  width: 80% !important;
 }
 
 .nav-background {
@@ -119,6 +132,8 @@ input {
 
 .form-container {
   max-width: 450px !important;
+  padding-right: 50px;
+  padding-left: 50px;
 }
 
 .form-label {
