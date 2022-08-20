@@ -72,7 +72,7 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <section>
+      <section id="merch">
         <div className="columns is-centered is-2 is-multiline">
           <div className="column is-full">
             <h2>MERCH</h2>
