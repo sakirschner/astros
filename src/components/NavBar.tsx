@@ -83,13 +83,18 @@ export default function NavBar() {
               MERCH
             </Link>
             {/*eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a
+            <Link
               className="navbar-item"
               id={`${scroll || isSmall ? "nav-item-scroll" : "nav-item"}`}
-              href="#"
+              to={{ pathname: "/#contact" }}
+              onClick={() => {
+                if (burgerOpen) {
+                  setBurgerOpen(false);
+                }
+              }}
             >
               CONTACT
-            </a>
+            </Link>
           </div>
         </div>
       </div>

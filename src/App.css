@@ -44,6 +44,16 @@ h3 {
   color: #fff;
 }
 
+input:-internal-autofill-selected {
+  background-color: transparent !important;
+  color: #fff !important;
+}
+
+input {
+  background-color: transparent !important;
+  color: #fff !important;
+}
+
 .has-background {
   position: relative;
   overflow: hidden;
@@ -117,8 +127,8 @@ h3 {
 }
 
 .form-field {
-  background-color: transparent;
-  color: #fff;
+  background-color: transparent !important;
+  color: #fff !important;
 }
 
 #top {

@@ -3,6 +3,10 @@ import ShirtSM from "../images/sun-astros-shirt-sm.jpg";
 import ShirtLG from "../images/sun-astros-shirt-lg.jpg";
 import AlbumLG from "../images/sun-astros-album-lg.jpg";
 import AlbumSM from "../images/sun-astros-album-sm.jpg";
+import insta from "../images/instagram.svg";
+import bandcamp from "../images/bandcamp.svg";
+import spotify from "../images/Spotify.svg";
+import reactSVG from "../images/React-icon.svg";
 import "bulma/css/bulma.min.css";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 import { useSongKick } from "../hooks/useSongKick";
@@ -102,15 +106,95 @@ export default function Home() {
       <section id="contact">
         <div>
           <h2>CONTACT</h2>
+          <p
+            style={{
+              marginTop: "-1em",
+              marginBottom: "1em",
+              fontSize: "24px",
+              color: "#fff",
+            }}
+          >
+            FOR BOOKING AND GENERAL INQUIRIES EMAIL{" "}
+            <a
+              href="mailto: sunastros@gmail.com"
+              style={{ color: "#fff", textDecoration: "underline" }}
+            >
+              SUNASTROS@GMAIL.COM
+            </a>{" "}
+            OR USE THE FORM BELOW.
+          </p>
         </div>
         <Form />
       </section>
       <section>
-        <iframe
-          title="SUN ASTROS BANDCAMP"
-          scrolling="no"
-          src="https://bandcamp.com/band_follow_button_deluxe/1584757219"
-        ></iframe>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            verticalAlign: "center",
+          }}
+        >
+          {/*eslint-disable-next-line react/jsx-no-target-blank*/}
+          <a href="https://sunastros.bandcamp.com/" target="_blank">
+            <img
+              src={bandcamp}
+              alt="SUN ASTROS BANCAMP"
+              style={{ width: "24px", cursor: "pointer" }}
+            />
+          </a>
+          {/*eslint-disable-next-line react/jsx-no-target-blank*/}
+          <a
+            href="https://open.spotify.com/artist/5fUUhkuggpopBwbjaICHmB?si=TqPhd939QeKBED71Z_UJZQ"
+            target="_blank"
+          >
+            <img
+              src={spotify}
+              alt="SUN ASTROS SPOTIFY"
+              style={{ width: "52px", cursor: "pointer" }}
+            />
+          </a>
+          {/*eslint-disable-next-line react/jsx-no-target-blank*/}
+          <a href="https://www.instagram.com/sun.astros" target="_blank">
+            <img
+              src={insta}
+              alt="SUN ASTROS INSTA"
+              style={{ width: "24px", cursor: "pointer" }}
+            />
+          </a>
+        </div>
+        <p style={{ color: "#fff", fontSize: "16px" }}>
+          &copy; 2022 SUN ASTROS
+        </p>
+        <p
+          style={{
+            color: "#fff",
+            fontSize: "16px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <img
+            src={reactSVG}
+            alt="react logo"
+            style={{ width: "16px", marginRight: "5px", marginTop: "-3px" }}
+          />{" "}
+          SITE MADE WITH REACT BY{" "}
+          {/*eslint-disable-next-line react/jsx-no-target-blank*/}
+          <a
+            href="https://scottkirschner.com"
+            style={{
+              color: "#fff",
+              textDecoration: "underline",
+              fontSize: "18px",
+              marginLeft: "5px",
+            }}
+            target="_blank"
+          >
+            SCOTTY
+          </a>
+        </p>
       </section>
 
       {scroll && (

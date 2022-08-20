@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import Swal from "sweetalert2";
+import emailjs from "emailjs-com";
 import "bulma/css/bulma.min.css";
-import { useState } from "react";
 
 type FormValues = {
   name: string | null;
@@ -24,6 +25,51 @@ export default function Form() {
     setFormValues(newValue);
   };
 
+  const handleSubmit = async () => {
+    if (formValues.email && formValues.name && formValues.message) {
+      const params = {
+        name: formValues.name,
+        email: formValues.email,
+        subject: formValues.subject,
+        message: formValues.message,
+      };
+      console.log(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        process.env.REACT_APP_USER_ID
+      );
+      await emailjs
+        .send(
+          process.env.REACT_APP_SERVICE_ID ?? "",
+          process.env.REACT_APP_TEMPLATE_ID ?? "",
+          params,
+          process.env.REACT_APP_USER_ID ?? ""
+        )
+        .then(
+          (response) => {
+            Swal.fire({
+              icon: "success",
+              title: "MESSAGE SENT",
+            });
+            setFormValues({
+              name: null,
+              email: null,
+              subject: null,
+              message: null,
+            });
+          },
+          (error) => {
+            console.error(error.text);
+            Swal.fire({
+              icon: "error",
+              title: "SOMETHING WENT WRONG",
+              text: error.text,
+            });
+          }
+        );
+    }
+  };
+
   return (
     <div className="container form-container">
       <div className="field">
@@ -35,6 +81,7 @@ export default function Form() {
             name="name"
             value={formValues.name ?? ""}
             onChange={handleChange}
+            required
           />
         </div>
       </div>
@@ -48,6 +95,7 @@ export default function Form() {
             type="email"
             value={formValues.email ?? ""}
             onChange={handleChange}
+            required
           />
         </div>
       </div>
@@ -73,13 +121,25 @@ export default function Form() {
             name="message"
             value={formValues.message ?? ""}
             onChange={handleChange}
-          ></textarea>
+            required
+          />
         </div>
       </div>
 
       <div className="field">
         <div className="control">
-          <button className="button is-danger is-light btn">SUBMIT</button>
+          {formValues.email && formValues.message && formValues.name ? (
+            <button
+              className="button is-danger is-light btn"
+              onClick={handleSubmit}
+            >
+              SUBMIT
+            </button>
+          ) : (
+            <button className="button is-danger is-light btn" disabled>
+              SUBMIT
+            </button>
+          )}
         </div>
       </div>
     </div>
