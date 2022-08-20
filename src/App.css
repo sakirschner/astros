@@ -107,6 +107,20 @@ h3 {
   max-width: 300px;
 }
 
+.form-container {
+  max-width: 450px !important;
+}
+
+.form-label {
+  font-size: 22px;
+  color: #fff;
+}
+
+.form-field {
+  background-color: transparent;
+  color: #fff;
+}
+
 #top {
   position: fixed;
   bottom: 20px;

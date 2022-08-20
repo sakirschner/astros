@@ -10,6 +10,7 @@ import { useMediaQuery } from "usehooks-ts";
 import { useScrollHandler } from "../hooks/useScrollHandler";
 import NavBar from "./NavBar";
 import InnerImageZoom from "react-inner-image-zoom";
+import Form from "./Form";
 
 export default function Home() {
   useSongKick("//widget.songkick.com/10226656/widget.js");
@@ -23,14 +24,14 @@ export default function Home() {
 
   return (
     <html className="has-navbar-fixed-top">
-      <section className="hero has-background">
+      <div className="hero has-background">
         <NavBar />
         <img
           alt="SUN ASTROS BUBBLE BATH"
           className={`hero-background ${isSmall ? "hero-margin" : null}`}
           src={BubbleBath}
         />
-      </section>
+      </div>
       <section id="listen">
         <div>
           <h2>LISTEN</h2>
@@ -98,7 +99,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      <section id="contact">
+        <div>
+          <h2>CONTACT</h2>
+        </div>
+        <Form />
+      </section>
       <section>
         <iframe
           title="SUN ASTROS BANDCAMP"
@@ -106,6 +112,7 @@ export default function Home() {
           src="https://bandcamp.com/band_follow_button_deluxe/1584757219"
         ></iframe>
       </section>
+
       {scroll && (
         <button id="top" onClick={scrollToTop}>
           TOP
