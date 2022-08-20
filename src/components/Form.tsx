@@ -33,11 +33,6 @@ export default function Form() {
         subject: formValues.subject,
         message: formValues.message,
       };
-      console.log(
-        process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
-        process.env.REACT_APP_USER_ID
-      );
       await emailjs
         .send(
           process.env.REACT_APP_SERVICE_ID ?? "",
