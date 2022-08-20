@@ -20,7 +20,6 @@ export default function Home() {
   useSongKick("//widget.songkick.com/10226656/widget.js");
   const scroll = useScrollHandler();
   const isSmall = useMediaQuery("(max-width: 1023px)");
-  const isMedium = useMediaQuery("(min-width: 800px)");
 
   const scrollToTop = () => {
     document.body.scrollTop = 0;
