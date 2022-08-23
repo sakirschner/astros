@@ -126,10 +126,10 @@ export default function Home() {
           >
             FOR BOOKING AND GENERAL INQUIRIES EMAIL{" "}
             <a
-              href="mailto: sunastros@gmail.com"
+              href="mailto: sunastrosband@gmail.com"
               style={{ color: "#fff", textDecoration: "underline" }}
             >
-              SUNASTROS@GMAIL.COM
+              SUNASTROSBAND@GMAIL.COM
             </a>{" "}
             OR USE THE FORM BELOW.
           </p>
