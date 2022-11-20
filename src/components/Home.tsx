@@ -1,4 +1,4 @@
-import BubbleBath from "../images/sun-astros-bubble-bath.png";
+import BubbleBath from "../images/sun-astros.jpg";
 import ShirtSM from "../images/sun-astros-shirt-sm.jpg";
 import ShirtLG from "../images/sun-astros-shirt-lg.jpg";
 import AlbumLG from "../images/sun-astros-album-lg.jpg";
@@ -33,7 +33,7 @@ export default function Home() {
         <img
           alt="SUN ASTROS BUBBLE BATH"
           className={`hero-background ${
-            isSmall ? "hero-margin hero-background-small" : null
+            isSmall ? "hero-background-small" : null
           }`}
           src={BubbleBath}
         />

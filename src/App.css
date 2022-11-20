@@ -57,13 +57,15 @@ input {
 .has-background {
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .hero-background {
-  position: relative;
-  object-fit: contain;
-  left: 7%;
-  width: 85%;
+  /* position: relative; */
+  /* object-fit: contain; */
+  /* left: 7%; */
+  margin: auto;
+  width: 60%;
 }
 
 .hero-background-small {
@@ -72,7 +74,7 @@ input {
 }
 
 .hero-margin {
-  margin-top: 2em;
+  margin-top: 0em;
 }
 
 .merch {
